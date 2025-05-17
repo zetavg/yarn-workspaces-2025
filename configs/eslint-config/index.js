@@ -44,7 +44,7 @@ const config = {
           ['^react$', '^react/', '^react-dom', '^react', '^@?\\w'],
           // Internal packages.
           [
-            '^(@|@yarn-workspaces-example|components|utils|config|vendored-lib)(/.*|$)',
+            '^(@|@yarn-workspaces-2025|components|utils|config|vendored-lib)(/.*|$)',
           ],
           // Side effect imports.
           ['^\\u0000'],

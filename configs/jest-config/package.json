@@ -1,5 +1,5 @@
 {
-  "name": "@yarn-workspaces-example/jest-config",
+  "name": "@yarn-workspaces-2025/jest-config",
   "main": "index.ts",
   "scripts": {
     "lint": "eslint .",

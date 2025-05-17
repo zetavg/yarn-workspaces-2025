@@ -5,7 +5,7 @@ This package provides some shared Jest configurations for all workspaces in the 
 ## Install
 
 ```bash
-yarn add @yarn-workspaces-example/jest-config --dev && yarn constraints --fix && yarn
+yarn add @yarn-workspaces-2025/jest-config --dev && yarn constraints --fix && yarn
 ```
 
 Then, add the following to your `jest.config.ts`:
@@ -13,7 +13,7 @@ Then, add the following to your `jest.config.ts`:
 ```ts
 import type { Config } from 'jest';
 
-import { jestBaseConfig } from '@yarn-workspaces-example/jest-config';
+import { jestBaseConfig } from '@yarn-workspaces-2025/jest-config';
 
 const baseConfig = jestBaseConfig({ dirname: __dirname });
 

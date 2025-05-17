@@ -5,14 +5,14 @@ This package provides some shared TypeScript configurations for all workspaces i
 ## Install
 
 ```bash
-yarn add @yarn-workspaces-example/tsconfig --dev && yarn constraints --fix && yarn
+yarn add @yarn-workspaces-2025/tsconfig --dev && yarn constraints --fix && yarn
 ```
 
 Then, add the following to your `tsconfig.json`:
 
 ```json5
 {
-  "extends": "@yarn-workspaces-example/tsconfig",
+  "extends": "@yarn-workspaces-2025/tsconfig",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"] // Optional path mappings

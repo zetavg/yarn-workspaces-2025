@@ -1,5 +1,5 @@
 {
-  "extends": "@yarn-workspaces-example/tsconfig",
+  "extends": "@yarn-workspaces-2025/tsconfig",
   "include": [
     "**/*.ts"
   ]

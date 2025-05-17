@@ -1,5 +1,5 @@
 {
-  "name": "@yarn-workspaces-example/tsconfig",
+  "name": "@yarn-workspaces-2025/tsconfig",
   "peerDependencies": {
     "typescript": "^4"
   },

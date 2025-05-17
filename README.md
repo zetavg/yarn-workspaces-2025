@@ -2,9 +2,6 @@
 
 This is a template for a monorepo using yarn workspaces, TypeScript, ESLint, and Jest.
 
-> [!WARNING]
-> Before you start working, make sure to find and replace all occurrences of `@yarn-workspaces-example` with your project or NPM/GitHub organization name, and `rm yarn.lock` for a fresh start.
-
 ## Project Structure
 
 - `config/`: Shared configuration files for tools like TypeScript, ESLint, and Jest.
@@ -17,7 +14,7 @@ To eliminate the need to maintain multiple copies of the same configurations, de
 
 Note that for executables such as `tsc`, `eslint`, and `jest` to be accessible from each workspace that uses the shared TypeScript, ESLint, and Jest configurations, those workspaces should explicitly install such tools rather than relying on the shared configurations' dependencies. Therefore, the shared configurations will only list such dependencies as `"peerDependencies"`. The consistencies of those config-packages-defined `"peerDependencies"` can be automatically updated by running [`yarn constraints --fix`](https://yarnpkg.com/cli/constraints).
 
-The `@yarn-workspaces-example/eslint-config` package is installed at the root of the monorepo to lint top-level configuration files (such as `yarn.config.cjs`) and to force hoisting of the ESLint configs and plugins used in `@yarn-workspaces-example/eslint-config`, ensuring their accessibility and not to be installed nested in the `eslint-config` package - where ESLint would not be able to find them.
+The `@yarn-workspaces-2025/eslint-config` package is installed at the root of the monorepo to lint top-level configuration files (such as `yarn.config.cjs`) and to force hoisting of the ESLint configs and plugins used in `@yarn-workspaces-2025/eslint-config`, ensuring their accessibility and not to be installed nested in the `eslint-config` package - where ESLint would not be able to find them.
 
 ### Using Uncompiled Source Code of Packages During Development
 
@@ -30,7 +27,7 @@ See the `tsconfig.json` files of `packages/plus-two` and `apps/sample-app` for e
 > [!NOTE]
 > Defining the `paths` compiler option will not change how import paths are emitted, while this is the desired behavior for building the package for distribution, but you will need to make sure you have also handled the mappings while using other tools such as Jest, `ts-node` or Babel.
 >
-> For Jest, it will be done automatically by using the `jestBaseConfig` function provided by `@yarn-workspaces-example/jest-config`.
+> For Jest, it will be done automatically by using the `jestBaseConfig` function provided by `@yarn-workspaces-2025/jest-config`.
 >
 > As for `ts-node`, it can be done by using the `tsconfig-paths` package, see the `tsconfig.json` file in `apps/sample-app` for an example.
 

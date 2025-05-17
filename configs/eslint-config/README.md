@@ -5,7 +5,7 @@ This package provides some shared ESLint configurations for all workspaces in th
 ## Install
 
 ```bash
-yarn add @yarn-workspaces-example/eslint-config --dev && yarn constraints --fix && yarn
+yarn add @yarn-workspaces-2025/eslint-config --dev && yarn constraints --fix && yarn
 ```
 
 Then, add the following to your `.eslintrc.js`:
@@ -14,7 +14,7 @@ Then, add the following to your `.eslintrc.js`:
 /** @type {import('eslint').Linter.Config} */
 const config = {
   root: true,
-  extends: ['@yarn-workspaces-example'],
+  extends: ['@yarn-workspaces-2025'],
 };
 
 module.exports = config;
