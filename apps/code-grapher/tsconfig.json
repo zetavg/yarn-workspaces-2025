@@ -1,0 +1,22 @@
+{
+  "extends": "@yarn-workspaces-2025/tsconfig",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "sourceMap": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "dist"
+  },
+  "ts-node": {
+    "esm": true,
+    "require": [
+      // This is required for the path mappings in compilerOptions to work with ts-node.
+      "tsconfig-paths/register"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "examples/**/*.ts"
+  ]
+}
