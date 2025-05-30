@@ -2,15 +2,15 @@
 const { defineConfig } = require('@yarnpkg/types');
 
 const enforceMatchedPeerDependenciesForConfigs =
-  require('./.yarn/constraints/enforceMatchedPeerDependenciesForConfigs').default;
+  require('./.yarn/constraints/enforceMatchedPeerDependenciesForConfigs.cjs').default;
 const enforceNonPrivatePackagesHavePackPackageScript =
-  require('./.yarn/constraints/enforceNonPrivatePackagesHavePackPackageScript').default;
+  require('./.yarn/constraints/enforceNonPrivatePackagesHavePackPackageScript.cjs').default;
 const enforcePeerDependenciesOfDependenciesAreListed =
-  require('./.yarn/constraints/enforcePeerDependenciesOfDependenciesAreListed').default;
+  require('./.yarn/constraints/enforcePeerDependenciesOfDependenciesAreListed.cjs').default;
 const enforceDevDependenciesSatisfiesPeerDependencies =
-  require('./.yarn/constraints/enforceDevDependenciesSatisfiesPeerDependencies').default;
+  require('./.yarn/constraints/enforceDevDependenciesSatisfiesPeerDependencies.cjs').default;
 
-const setVersions = require('./.yarn/constraints/setVersions').default;
+const setVersions = require('./.yarn/constraints/setVersions.cjs').default;
 
 module.exports = defineConfig({
   async constraints(ctx) {
