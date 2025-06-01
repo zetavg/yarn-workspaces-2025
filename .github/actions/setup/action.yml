@@ -36,7 +36,6 @@ runs:
       shell: bash
       run: |
         ${{ inputs.yarn-workspaces-focus && format('yarn workspaces focus {0}', inputs.yarn-workspaces-focus) || 'yarn install'}}
-        yarn constraints
     - name: Build
       if: ${{ inputs.skip-build != 'true' && inputs.skip-yarn-install != 'true' }}
       shell: bash
