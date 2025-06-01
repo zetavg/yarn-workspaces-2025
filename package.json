@@ -19,7 +19,7 @@
     "build-focus": "sh -c 'yarn foreach-topological --recursive --from \"$1\" run build' --",
     "clean": "yarn foreach-parallel --all run clean",
     "set-version": "PACKAGES_VERSION=$0 yarn constraints --fix",
-    "pack-packages": "yarn foreach-topological --all run pack-package",
+    "pack-packages": "yarn foreach --topological --all run pack-package",
     "publish-packed-packages": "yarn foreach-parallel --all run publish-packed-package"
   },
   "dependencies": {
