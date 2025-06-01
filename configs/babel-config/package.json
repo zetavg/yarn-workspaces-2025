@@ -1,0 +1,43 @@
+{
+  "name": "@yarn-workspaces-2025/babel-config",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "babel-config-default-extensions": "bin/babel-config-default-extensions.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build:types": "tsc",
+    "build": "yarn build:types",
+    "watch:types": "yarn build:types --watch --preserveWatchOutput",
+    "watch": "yarn watch:types",
+    "pack-package": "yarn pack",
+    "publish-packed-package": "npm publish package.tgz --access public",
+    "clean": "rm -rf package.tgz"
+  },
+  "peerDependencies": {
+    "@babel/cli": "^7",
+    "@babel/core": "^7"
+  },
+  "peerDependenciesMeta": {
+    "@babel/cli": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-typescript": "^7",
+    "babel-plugin-module-extension-resolver": "^1",
+    "babel-plugin-module-resolver": "^5",
+    "tsconfig-paths": "^4"
+  },
+  "devDependencies": {
+    "@yarn-workspaces-2025/eslint-config": "workspace:^",
+    "@yarn-workspaces-2025/prettier-config": "workspace:^",
+    "@yarn-workspaces-2025/tsconfig": "workspace:^",
+    "eslint": "^9",
+    "prettier": "^3",
+    "typescript": "~5.8"
+  }
+}
