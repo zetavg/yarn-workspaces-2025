@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest';
+
 import plusTwo from './plusTwo';
 
 test('1 plus two equals 3', () => {

@@ -1,13 +1,13 @@
 {
   "extends": "@yarn-workspaces-2025/tsconfig",
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.test.ts"],
   "compilerOptions": {
-    "paths": {
-      // For the following workspace dependencies, use the uncompiled source code from to avoid the need to build them during development.
-      // To simulate using the compiled code as installing the packages from npm, comment out the following path mappings.
-      "@yarn-workspaces-2025/sum": ["../../packages/sum/src"]
-    }
-  },
-  "include": [
-    "**/*.ts"
-  ]
+    "baseUrl": "./src",
+    "paths": {},
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "dist/types",
+    "emitDeclarationOnly": true
+  }
 }

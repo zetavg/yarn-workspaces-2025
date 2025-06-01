@@ -12,7 +12,7 @@
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit --pretty",
-    "test": "vitest",
+    "test": "vitest --run",
     "build:types": "tsc",
     "build:cjs": "babel src --extensions \"$(babel-config-default-extensions)\" --out-dir dist/cjs --out-file-extension .js --env-name cjs",
     "build:esm": "babel src --extensions \"$(babel-config-default-extensions)\" --out-dir dist/esm --out-file-extension .mjs --env-name esm",
@@ -28,8 +28,6 @@
   "devDependencies": {
     "@babel/cli": "^7",
     "@babel/core": "^7",
-    "@types/eslint": "^8",
-    "@types/jest": "^29",
     "@yarn-workspaces-2025/babel-config": "workspace:^",
     "@yarn-workspaces-2025/eslint-config": "workspace:^",
     "@yarn-workspaces-2025/prettier-config": "workspace:^",
@@ -38,6 +36,6 @@
     "eslint": "^9",
     "prettier": "^3",
     "typescript": "~5.8",
-    "vitest": "^3.1.4"
+    "vitest": "^3"
   }
 }
