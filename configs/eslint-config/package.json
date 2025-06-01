@@ -2,8 +2,13 @@
   "name": "@yarn-workspaces-2025/eslint-config",
   "type": "module",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint .",
+    "build:types": "tsc",
+    "build": "yarn build:types",
+    "watch:types": "yarn build:types --watch --preserveWatchOutput",
+    "watch": "yarn watch:types",
     "pack-package": "yarn pack",
     "publish-packed-package": "npm publish package.tgz --access public",
     "clean": "rm -rf package.tgz"
@@ -13,14 +18,14 @@
     "prettier": "^3",
     "typescript": "~5.8"
   },
-  "devDependencies": {
-    "eslint": "^9"
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@eslint/js": "^9",
     "@types/eslint": "^9",
-    "@typescript-eslint/eslint-plugin": "^8",
-    "@typescript-eslint/parser": "^8.33.0",
     "@vitest/eslint-plugin": "^1",
     "eslint-config-prettier": ">= 7.0.0 <10.0.0 || >=10.1.0",
     "eslint-plugin-import": "^2",
@@ -30,6 +35,14 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "eslint-plugin-simple-import-sort": "^12",
     "eslint-plugin-unicorn": "^59",
-    "globals": "^16"
+    "globals": "^16",
+    "typescript-eslint": "^8"
+  },
+  "devDependencies": {
+    "@yarn-workspaces-2025/prettier-config": "workspace:^",
+    "@yarn-workspaces-2025/tsconfig": "workspace:^",
+    "eslint": "^9",
+    "prettier": "^3",
+    "typescript": "~5.8"
   }
 }
