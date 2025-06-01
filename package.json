@@ -1,7 +1,7 @@
 {
   "name": "@yarn-workspaces-2025/workspace-root",
   "private": true,
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.5.0",
   "workspaces": [
     "configs/*",
     "packages/*",
@@ -18,12 +18,14 @@
     "clean": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . run clean"
   },
   "dependencies": {
-    "@yarnpkg/types": "^4.0.0"
+    "@yarnpkg/types": "^4"
   },
   "devDependencies": {
     "@types/eslint": "^8",
     "@yarn-workspaces-2025/eslint-config": "workspace:^",
-    "eslint": "^8",
-    "semver": ">=7"
+    "eslint": "^9",
+    "prettier": "^3",
+    "semver": ">=7",
+    "typescript": "~5.8"
   }
 }
