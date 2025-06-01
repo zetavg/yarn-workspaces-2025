@@ -1,5 +1,0 @@
-import plusTwo from '@yarn-workspaces-2025/plus-two';
-
-export const sampleFunction = () => {
-  return `One plus two equals ${plusTwo(1)}.`;
-};
