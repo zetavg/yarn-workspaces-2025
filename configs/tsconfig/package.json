@@ -1,7 +1,7 @@
 {
   "name": "@yarn-workspaces-2025/tsconfig",
   "peerDependencies": {
-    "typescript": "^4"
+    "typescript": "^5"
   },
   "scripts": {
     "pack-package": "yarn pack",
