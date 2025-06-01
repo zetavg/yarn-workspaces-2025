@@ -9,6 +9,9 @@ export default defineConfig([
   },
   {
     files: ['**/*.json'],
+    ignores: [
+      '**/tsconfig.json', // tsconfig files may contain comments, which ESLint can't parse
+    ],
     language: 'json/json',
     rules: {
       'json/no-duplicate-keys': 'error',
