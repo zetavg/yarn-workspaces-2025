@@ -18,7 +18,7 @@
     "watch:types": "yarn build:types --watch --preserveWatchOutput",
     "watch:cjs": "yarn build:cjs --watch",
     "watch:esm": "yarn build:esm --watch",
-    "watch": "concurrently --names types,cjs,esm 'yarn watch:types' 'yarn watch:cjs' 'yarn watch:esm'",
+    "watch": "concurrently --names types,cjs,esm,deps 'yarn watch:types' 'yarn watch:cjs' 'yarn watch:esm' 'yarn run --top-level watch-deps \"$(jq -r .name package.json)\"'",
     "clean": "rm -rf dist && rm -rf package.tgz",
     "pack-package": "yarn clean && yarn build && yarn pack",
     "publish-packed-package": "npm publish package.tgz --access public"
