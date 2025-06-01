@@ -1,11 +1,15 @@
-name: Setup Environment
+name: Setup
+description: Setup the project.
 inputs:
-  skip-yarn-install:
-    required: false
-    default: false
   yarn-workspaces-focus:
+    description: Focus on a specific Yarn workspace when installing dependencies and building.
     required: false
-    type: string
+  skip-yarn-install:
+    description: Skip installing dependencies with Yarn if set to `true` - note that this will also skip building the project.
+    required: false
+  skip-build:
+    description: Skip building the project if set to `true`.
+    required: false
 runs:
   using: 'composite'
   steps:
@@ -33,3 +37,8 @@ runs:
       run: |
         ${{ inputs.yarn-workspaces-focus && format('yarn workspaces focus {0}', inputs.yarn-workspaces-focus) || 'yarn install'}}
         yarn constraints
+    - name: Build
+      if: ${{ inputs.skip-build != 'true' && inputs.skip-yarn-install != 'true' }}
+      shell: bash
+      run: |
+        ${{ inputs.yarn-workspaces-focus && format('yarn build-focus {0}', inputs.yarn-workspaces-focus) || 'yarn build'}}

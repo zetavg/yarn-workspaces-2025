@@ -51,8 +51,8 @@ jobs:
         uses: actions/download-artifact@v4.1.2
         with:
           name: packed-packages
-      - name: Setup environment
-        uses: ./.github/actions/setup-environment
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Setup registry
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN || secrets.GITHUB_TOKEN }}

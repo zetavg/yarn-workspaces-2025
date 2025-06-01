@@ -8,18 +8,19 @@
     "apps/*"
   ],
   "scripts": {
-    "foreach": "FORCE_COLOR=true yarn workspaces foreach --all --exclude . -vv",
-    "foreach-topological": "yarn foreach --topological",
+    "foreach": "FORCE_COLOR=true yarn workspaces foreach --exclude . -vv",
+    "foreach-topological": "yarn foreach --topological-dev",
     "foreach-parallel": "yarn foreach --parallel",
-    "lint": "yarn foreach-parallel run lint",
-    "typecheck": "yarn foreach-parallel run typecheck",
-    "test": "yarn foreach-parallel run test",
-    "build:types": "yarn foreach-topological run build:types",
-    "build": "yarn foreach-topological run build",
-    "clean": "yarn foreach-parallel run clean",
+    "lint": "yarn foreach-parallel --all run lint",
+    "typecheck": "yarn foreach-parallel --all run typecheck",
+    "test": "yarn foreach-parallel --all run test",
+    "build:types": "yarn foreach-topological --all run build:types",
+    "build": "yarn foreach-topological --all run build",
+    "build-focus": "sh -c 'yarn foreach-topological --all --recursive --from \"$1\" run build' --",
+    "clean": "yarn foreach-parallel --all run clean",
     "set-version": "PACKAGES_VERSION=$0 yarn constraints --fix",
-    "pack-packages": "yarn foreach-parallel run pack-package",
-    "publish-packed-packages": "yarn foreach-parallel run publish-packed-package"
+    "pack-packages": "yarn foreach-topological --all run pack-package",
+    "publish-packed-packages": "yarn foreach-parallel --all run publish-packed-package"
   },
   "dependencies": {
     "@yarnpkg/types": "^4"

@@ -4,13 +4,13 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
     paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
   workflow_call:
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup-environment
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Lint
         run: |
           yarn lint
@@ -32,9 +32,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup-environment
-      - name: Build Types
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          skip-build: true
+      - name: Build types
         run: |
           yarn build:types
       - name: Typecheck
@@ -45,39 +47,40 @@ jobs:
     name: Prepare Test
     runs-on: ubuntu-latest
     outputs:
+      workspace-names: ${{ steps.list-workspaces.outputs.workspace-names }}
       workspace-paths: ${{ steps.list-workspaces.outputs.workspace-paths }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Setup environment
-        uses: ./.github/actions/setup-environment
+      - name: Setup
+        uses: ./.github/actions/setup
         with:
           skip-yarn-install: true
       - name: List workspaces with tests
-        uses: zetavg/yarn-workspaces-list-action@v2.pre2
+        uses: zetavg/yarn-workspaces-list-action@v2.pre3
         id: list-workspaces
         with:
           # Check if the workspace has a "test" script defined in its package.json.
           condition: '[ -f "$workspace_path/package.json" ] && jq -e ".scripts.test" "$workspace_path/package.json"'
 
   test:
-    name: Test ${{ matrix.dir }}
+    name: Test ${{ matrix.workspace-name }}
     needs: prepare-test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        dir: ${{ fromJson(needs.prepare-test.outputs.workspace-paths) }}
-    defaults:
-      run:
-        working-directory: ${{ matrix.dir }}
+        workspace-name: ${{ fromJson(needs.prepare-test.outputs.workspace-names) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup-environment
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          yarn-workspaces-focus: ${{ matrix.workspace-name }}
       - name: Test
         run: |
+          cd "$(yarn workspaces list --json | jq -r 'select(.name == "${{ matrix.workspace-name }}") | .location')"
           yarn test
