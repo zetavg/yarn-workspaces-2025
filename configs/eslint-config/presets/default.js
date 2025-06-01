@@ -1,3 +1,4 @@
+import markdown from '@eslint/markdown';
 import vitest from '@vitest/eslint-plugin';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
@@ -9,6 +10,8 @@ export default defineConfig([
   { ignores: ['dist', 'node_modules'] },
   tseslint.configs.recommended,
   vitest.configs.recommended,
+  configs.json,
+  markdown.configs.recommended,
   {
     name: 'Configs Applied to All JS/TS Files',
     files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
