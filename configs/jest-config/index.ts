@@ -1,1 +1,0 @@
-export { jestBaseConfig } from './jestBaseConfig';

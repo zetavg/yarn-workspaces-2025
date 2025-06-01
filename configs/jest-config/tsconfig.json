@@ -1,6 +1,0 @@
-{
-  "extends": "@yarn-workspaces-2025/tsconfig",
-  "include": [
-    "**/*.ts"
-  ]
-}
