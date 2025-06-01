@@ -16,7 +16,7 @@
     "test": "yarn foreach-parallel --all run test",
     "build:types": "yarn foreach-topological --all run build:types",
     "build": "yarn foreach-topological --all run build",
-    "build-focus": "sh -c 'yarn foreach-topological --all --recursive --from \"$1\" run build' --",
+    "build-focus": "sh -c 'yarn foreach-topological --recursive --from \"$1\" run build' --",
     "clean": "yarn foreach-parallel --all run clean",
     "set-version": "PACKAGES_VERSION=$0 yarn constraints --fix",
     "pack-packages": "yarn foreach-topological --all run pack-package",
