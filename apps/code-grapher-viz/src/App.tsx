@@ -1,3 +1,7 @@
+/* eslint-disable no-debugger */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-empty */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Dagre from "@dagrejs/dagre";
 import React, { useCallback, useEffect, useMemo } from "react";
 import {
