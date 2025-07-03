@@ -22,14 +22,14 @@ Normally, when we install and import a package from another package in the monor
 
 As a workaround, we can leverage TypeScript's `paths` compiler option in the `tsconfig.json` of the importing package to map the import path to the source code of the imported package. This way, we can switch to importing the source code instead of the compiled code during development without changing the import paths in the source code of the importing package. This is especially useful when we are working on both the importing and imported packages at the same time.
 
-See the `tsconfig.json` files of `packages/plus-two` and `apps/sample-app` for examples.
+See the `tsconfig.json` files of `packages/plus-two` and `apps/code-grapher` for examples.
 
 > [!NOTE]
 > Defining the `paths` compiler option will not change how import paths are emitted, while this is the desired behavior for building the package for distribution, but you will need to make sure you have also handled the mappings while using other tools such as Jest, `ts-node` or Babel.
 >
 > For Jest, it will be done automatically by using the `jestBaseConfig` function provided by `@yarn-workspaces-2025/jest-config`.
 >
-> As for `ts-node`, it can be done by using the `tsconfig-paths` package, see the `tsconfig.json` file in `apps/sample-app` for an example.
+> As for `ts-node`, it can be done by using the `tsconfig-paths` package, see the `tsconfig.json` file in `apps/code-grapher` for an example.
 
 ## Auto Publishing NPM Packages
 
