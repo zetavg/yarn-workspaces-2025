@@ -1,6 +1,6 @@
 # Yarn Workspaces Template
 
-This is a template for a monorepo using yarn workspaces, TypeScript, ESLint, and Vitest.
+This is a template for a monorepo using yarn workspaces, TypeScript, ESLint, and Jest.
 
 ## Project Structure
 
