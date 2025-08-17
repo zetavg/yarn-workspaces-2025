@@ -10,9 +10,9 @@ This is a template for a monorepo using yarn workspaces, TypeScript, ESLint, and
 
 ### Shared Configurations
 
-To eliminate the need to maintain multiple copies of the same configurations, define the same dependencies across different packages, and still allow for package-specific overrides, we package the shared configurations into extendable packages to be installed and used by the packages needing them.
+By packaging shared configurations into extendable packages, we avoid duplicating configuration files across multiple packages. This approach lets us declare common dependencies once while still permitting package‑specific overrides when needed.
 
-Note that for executables such as `tsc`, `eslint`, and `jest` to be accessible from each workspace that uses the shared TypeScript, ESLint, and Jest configurations, those workspaces should explicitly install such tools rather than relying on the shared configurations' dependencies. Therefore, the shared configurations will only list such dependencies as `"peerDependencies"`. The consistencies of those config-packages-defined `"peerDependencies"` can be automatically updated by running [`yarn constraints --fix`](https://yarnpkg.com/cli/constraints).
+To ensure that tools such as `tsc`, `eslint`, and `jest` are available in every workspace that consumes the shared configurations, each workspace must install these tools explicitly. The shared configuration packages declare them only as `"peerDependencies"`. Consistency across all config packages can be maintained automatically by running `yarn constraints --fix`.
 
 The `@yarn-workspaces-2025/eslint-config` package is installed at the root of the monorepo to lint top-level configuration files (such as `yarn.config.cjs`) and to force hoisting of the ESLint configs and plugins used in `@yarn-workspaces-2025/eslint-config`, ensuring their accessibility and not to be installed nested in the `eslint-config` package - where ESLint would not be able to find them.
 
